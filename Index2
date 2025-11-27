@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Report: Lost & Found Remedies (1918-2025) [index2]</title>
+    <style>
+        :root {
+            --bg-color: #f4f1ea;
+            --text-color: #2c2925;
+            --card-bg: #ffffff;
+            --accent-old: #8d6e63;
+            --accent-new: #00796b;
+            --border-color: #d7ccc8;
+            --font-serif: 'Georgia', 'Times New Roman', serif;
+            --font-sans: 'Segoe UI', 'Helvetica Neue', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: var(--font-serif);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        /* Header / Hero Section */
+        header {
+            background: #2c2925;
+            color: #f4f1ea;
+            padding: 4rem 1rem;
+            text-align: center;
+            border-bottom: 6px solid #bcaaa4;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            margin: 0;
+            font-weight: normal;
+            letter-spacing: 0.05em;
+        }
+
+        .subtitle {
+            font-family: var(--font-sans);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            margin-top: 1rem;
+            color: #bcaaa4;
+            font-size: 0.9rem;
+        }
+
+        /* Introduction */
+        .intro {
+            max-width: 800px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+            text-align: center;
+            font-size: 1.25rem;
+            color: #4e4b47;
+        }
+
+        .intro p {
+            margin-bottom: 1.5rem;
+        }
+
+        .highlight {
+            color: var(--accent-new);
+            font-weight: bold;
+        }
+
+        /* Main Grid */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto 4rem auto;
+            padding: 0 1rem;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 2.5rem;
+        }
+
+        /* Report Cards */
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 20px rgba(0,0,0,0.1);
+        }
+
+        /* Card Header */
+        .card-header {
+            background: #eefebe; /* Botanical green tint */
+            background: linear-gradient(to bottom, #f1f8e9, #e8f5e9);
+            padding: 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+            position: relative;
+        }
+
+        .card-header h2 {
+            margin: 0;
+            font-size: 1.8rem;
+            color: #2e7d32;
+        }
+
+        .scientific-name {
+            font-family: var(--font-serif);
+            font-style: italic;
+            color: #558b2f;
+            font-size: 1rem;
+            margin-top: 0.25rem;
+            display: block;
+        }
+
+        /* Card Body */
+        .card-body {
+            padding: 0;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* 1918 Section */
+        .section-1918 {
+            padding: 1.5rem;
+            background-color: #fdfbf7; /* Aged paper look */
+            border-bottom: 1px dashed var(--border-color);
+            position: relative;
+        }
+
+        .section-label {
+            font-family: var(--font-sans);
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 0.75rem;
+            display: inline-block;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+        }
+
+        .label-old {
+            background-color: #d7ccc8;
+            color: #5d4037;
+        }
+
+        .quote {
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 1rem;
+            color: #5d4037;
+            margin: 0;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .quote::before {
+            content: "“";
+            font-family: serif;
+            font-size: 3rem;
+            color: #d7ccc8;
+            position: absolute;
+            left: -0.5rem;
+            top: -1rem;
+        }
+
+        .citation {
+            font-size: 0.7rem;
+            color: #8d6e63;
+            margin-top: 0.5rem;
+            text-align: right;
+            font-family: var(--font-sans);
+        }
+
+        /* 2025 Section */
+        .section-2025 {
+            padding: 1.5rem;
+            background-color: #ffffff;
+            flex-grow: 1;
+        }
+
+        .label-new {
+            background-color: #b2dfdb;
+            color: #00695c;
+        }
+
+        .reality-text {
+            font-family: var(--font-sans);
+            font-size: 0.95rem;
+            color: #37474f;
+            margin: 0;
+        }
+
+        .verdict-tag {
+            display: inline-block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+            color: var(--accent-new);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 3rem;
+            background-color: #eefebe; 
+            background: linear-gradient(to bottom, #f4f1ea, #e0e0e0);
+            border-top: 1px solid var(--border-color);
+            color: #616161;
+            font-family: var(--font-sans);
+            font-size: 0.85rem;
+        }
+
+        /* Print Styles */
+        @media print {
+            body { background: white; }
+            header { padding: 2rem 0; background: white; color: black; border-bottom: 2px solid black; }
+            .grid { display: block; }
+            .card { break-inside: avoid; margin-bottom: 2rem; border: 1px solid #ccc; box-shadow: none; }
+            .card-header { background: #f0f0f0; -webkit-print-color-adjust: exact; }
+            .label-old, .label-new { border: 1px solid #999; background: none !important; color: black !important; }
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            h1 { font-size: 2.2rem; }
+            .intro { font-size: 1.1rem; padding: 0 1rem; }
+            .grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Lost & Found</h1>
+    <div class="subtitle">A Report on Pharmaceutical Redemptions (1918&ndash;2025)</div>
+</header>
+
+<div class="intro">
+    <p>This report identifies six medicinal plants that were dismissed as "useless" or "feeble" by the <em>Dispensatory of the United States</em> in 1918, but have since been <span class="highlight">validated by modern science</span> or become pillars of 21st-century healthcare.</p>
+</div>
+
+<div class="container">
+    <div class="grid">
+
+        <!-- Wild Yam -->
+        <article class="card">
+            <div class="card-header">
+                <h2>Wild Yam</h2>
+                <span class="scientific-name">Dioscorea villosa</span>
+            </div>
+            <div class="card-body">
+                <div class="section-1918">
+                    <span class="section-label label-old">The 1918 Verdict</span>
+                    <p class="quote">It has no medicinal properties, however, beyond a feeble diuretic action...</p>
+                    <div class="citation">Ref: USD 1918, Pg. 442</div>
+                </div>
+                <div class="section-2025">
+                    <span class="section-label label-new">The 2025 Reality</span>
+                    <br>
+                    <span class="verdict-tag">Status: Essential Precursor</span>
+                    <p class="reality-text">Far from having "no properties," this plant was found to contain <strong>diosgenin</strong>. This compound became the starting material for synthesizing progesterone and cortisone, revolutionizing medicine by enabling the mass production of the birth control pill and anti-inflammatory steroids. <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4206893/" target="_blank" style="color: var(--accent-new); text-decoration: underline; font-weight: 500;">(Source: Steroid Synthesis Breakthrough)</a></p>
+                </div>
+            </div>
+        </article>
+
+        <!-- Echinacea -->
+        <article class="card">
+            <div class="card-header">
+                <h2>Echinacea</h2>
+                <span class="scientific-name">Echinacea angustifolia</span>
+            </div>
+            <div class="card-body">
+                <div class="section-1918">
+                    <span class="section-label label-old">The 1918 Verdict</span>
+                    <p class="quote">...attributed with aphrodisiac and analgesic powers, but is probably without therapeutic value.</p>
+                    <div class="citation">Ref: USD 1918, Pg. 408</div>
+                </div>
+                <div class="section-2025">
+                    <span class="section-label label-new">The 2025 Reality</span>
+                    <br>
+                    <span class="verdict-tag">Status: Immune Standard</span>
+                    <p class="reality-text">Dismissed a century ago, Echinacea is now one of the world's most researched herbs. It is widely accepted as an immunostimulant, used globally to reduce the duration and severity of colds and upper respiratory infections. <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8941011/" target="_blank" style="color: var(--accent-new); text-decoration: underline; font-weight: 500;">(Source: Immunostimulant Clinical Review)</a></p>
+                </div>
+            </div>
+        </article>
+
+        <!-- Witch Hazel -->
+        <article class="card">
+            <div class="card-header">
+                <h2>Witch Hazel</h2>
+                <span class="scientific-name">Hamamelis virginiana</span>
+            </div>
+            <div class="card-body">
+                <div class="section-1918">
+                    <span class="section-label label-old">The 1918 Verdict</span>
+                    <p class="quote">...seems to possess no active physiological properties.</p>
+                    <div class="citation">Ref: USD 1918, Pg. 523</div>
+                </div>
+                <div class="section-2025">
+                    <span class="section-label label-new">The 2025 Reality</span>
+                    <br>
+                    <span class="verdict-tag">Status: FDA Recognized</span>
+                    <p class="reality-text">The 1918 editors were mistaken. Today, Witch Hazel is an FDA-recognized over-the-counter drug ingredient. Its tannins provide proven astringent and hemostatic effects, making it a standard treatment for skin irritation and hemorrhoids. <a href="https://www.accessdata.fda.gov/scripts/cdrh/cfdocs/cfcfr/cfrsearch.cfm?fr=347.10" target="_blank" style="color: var(--accent-new); text-decoration: underline; font-weight: 500;">(Source: FDA OTC Monograph)</a></p>
+                </div>
+            </div>
+        </article>
+
+        <!-- Calendula -->
+        <article class="card">
+            <div class="card-header">
+                <h2>Marigold</h2>
+                <span class="scientific-name">Calendula officinalis</span>
+            </div>
+            <div class="card-body">
+                <div class="section-1918">
+                    <span class="section-label label-old">The 1918 Verdict</span>
+                    <p class="quote">...it has no virtues beyond that of a feeble aromatic.</p>
+                    <div class="citation">Ref: USD 1918, Pg. 268</div>
+                </div>
+                <div class="section-2025">
+                    <span class="section-label label-new">The 2025 Reality</span>
+                    <br>
+                    <span class="verdict-tag">Status: Clinical Vulnerary</span>
+                    <p class="reality-text">Far from "feeble," Calendula is a powerhouse for skin repair. Modern clinical use validates its anti-inflammatory and wound-healing (vulnerary) properties, particularly for burns, dermatitis, and post-operative wound care. <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3841996/" target="_blank" style="color: var(--accent-new); text-decoration: underline; font-weight: 500;">(Source: Wound Care Efficacy Study)</a></p>
+                </div>
+            </div>
+        </article>
+
+        <!-- Burdock -->
+        <article class="card">
+            <div class="card-header">
+                <h2>Burdock</h2>
+                <span class="scientific-name">Arctium Lappa</span>
+            </div>
+            <div class="card-body">
+                <div class="section-1918">
+                    <span class="section-label label-old">The 1918 Verdict</span>
+                    <p class="quote">There is no sufficient reason, however, to believe it has any medicinal virtue.</p>
+                    <div class="citation">Ref: USD 1918, Pg. 605</div>
+                </div>
+                <div class="section-2025">
+                    <span class="section-label label-new">The 2025 Reality</span>
+                    <br>
+                    <span class="verdict-tag">Status: Detox Powerhouse</span>
+                    <p class="reality-text">Reclaimed by modern herbalism, Burdock is now valued as a primary "alterative" (blood purifier) and prebiotic. Its high inulin content and diuretic properties make it a staple in dermatological treatments for eczema and acne. <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6678278/" target="_blank" style="color: var(--accent-new); text-decoration: underline; font-weight: 500;">(Source: Alterative & Prebiotic Research)</a></p>
+                </div>
+            </div>
+        </article>
+
+        <!-- Hops -->
+        <article class="card">
+            <div class="card-header">
+                <h2>Hops</h2>
+                <span class="scientific-name">Humulus Lupulus</span>
+            </div>
+            <div class="card-body">
+                <div class="section-1918">
+                    <span class="section-label label-old">The 1918 Verdict</span>
+                    <p class="quote">Whether this [sedative] action is due to anything more than an effect through the imagination is open to question.</p>
+                    <div class="citation">Ref: USD 1918, Pg. 548</div>
+                </div>
+                <div class="section-2025">
+                    <span class="section-label label-new">The 2025 Reality</span>
+                    <br>
+                    <span class="verdict-tag">Status: Proven Sedative</span>
+                    <p class="reality-text">It wasn't imagination. Pharmacological studies have identified specific volatile constituents (such as methylbutenol) in Hops that exert a genuine sedative effect on the central nervous system, validating its use in sleep aids. <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6203107/" target="_blank" style="color: var(--accent-new); text-decoration: underline; font-weight: 500;">(Source: Sedative Mechanism Analysis)</a></p>
+                </div>
+            </div>
+        </article>
+
+    </div>
+</div>
+
+<footer>
+    <p><strong>Methodology:</strong> This report compares entries from the <em>Dispensatory of the United States of America</em>, 20th Edition (1918) against 2025 pharmacological data and modern compendia.</p>
+    <p>&copy; 2025 Historical Pharmacology Analysis</p>
+</footer>
+
+</body>
+</html>

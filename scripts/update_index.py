@@ -43,7 +43,7 @@ def build_index_html(file_paths):
 """
     # Build list markup
     if not file_paths:
-        list_html = '      <p class=\"muted\">No files found (excluding index.html).</p>\n'
+        list_html = '      <p class=\"muted\">No matching files found (looking for files ending with "-appliedAILabs.html").</p>\n'
     else:
         list_html = '      <ul>\n'
         for p in file_paths:
@@ -55,7 +55,7 @@ def build_index_html(file_paths):
 
 def main():
     files = git_ls_files()
-    files = [f for f in files if f != 'index.html']
+    files = [f for f in files if f != 'index.html' and f.endswith('-appliedAILabs.html')]
     files.sort()
 
     new_content = build_index_html(files)
